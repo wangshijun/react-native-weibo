@@ -239,7 +239,7 @@ RCT_EXPORT_METHOD(shareToWeibo:(NSDictionary *)aData
     }
     else if ([type isEqualToString:RCTWBShareTypeImage]) {
         //        大小不能超过10M
-        WBImageObject *imageObject = [WBImageObject new];
+        WBImageObject *imageObject = [WBImageObject object];
         if (aImage) {
             imageObject.imageData = UIImageJPEGRepresentation(aImage, 0.7);
         }
@@ -247,8 +247,8 @@ RCT_EXPORT_METHOD(shareToWeibo:(NSDictionary *)aData
     }
     else {
         if ([type isEqualToString:RCTWBShareTypeVideo]) {
-            WBVideoObject *videoObject = [WBVideoObject new];
-            videoObject.videoUrl = aData[RCTWBShareWebpageUrl];
+            WBNewVideoObject *videoObject = [WBNewVideoObject object];
+            [videoObject addVideo:aData[RCTWBShareWebpageUrl]];
             message.mediaObject = videoObject;
         }
         else if ([type isEqualToString:RCTWBShareTypeAudio]) {
@@ -257,7 +257,7 @@ RCT_EXPORT_METHOD(shareToWeibo:(NSDictionary *)aData
             message.mediaObject = musicObject;
         }
         else {
-            WBWebpageObject *webpageObject = [WBWebpageObject new];
+            WBWebpageObject *webpageObject = [WBWebpageObject object];
             webpageObject.webpageUrl = aData[RCTWBShareWebpageUrl];
             message.mediaObject = webpageObject;
         }

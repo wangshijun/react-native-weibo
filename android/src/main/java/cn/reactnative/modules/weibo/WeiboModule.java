@@ -79,7 +79,6 @@ public class WeiboModule extends ReactContextBaseJavaModule implements ActivityE
         }
         this.appId = appInfo.metaData.get("WB_APPID").toString();
         this.appId = this.appId.substring(2);
-
     }
 
     private static final String RCTWBEventName = "Weibo_Resp";
@@ -131,12 +130,16 @@ public class WeiboModule extends ReactContextBaseJavaModule implements ActivityE
         return mSinaShareAPI;
     }
 
+    private void installWb(final ReadableMap config){
+        AuthInfo sinaAuthInfo = this._genAuthInfo(config);
+        WbSdk.install(this, sinaAuthInfo)
+        mSinaSsoHandler = new SsoHandler(getCurrentActivity(), sinaAuthInfo);
+    }
 
     @ReactMethod
     public void login(final ReadableMap config, final Callback callback){
-
-        AuthInfo sinaAuthInfo = this._genAuthInfo(config);
-        mSinaSsoHandler = new SsoHandler(getCurrentActivity(), sinaAuthInfo);
+        if(mSinaSsoHandler == null)
+            installWb(config);
         mSinaSsoHandler.authorize(this.genWeiboAuthListener());
         callback.invoke();
     }
@@ -204,7 +207,7 @@ public class WeiboModule extends ReactContextBaseJavaModule implements ActivityE
     }
 
     WeiboAuthListener genWeiboAuthListener() {
-        return new WeiboAuthListener() {
+        return new WBAuthListener() {
             @Override
             public void onComplete(Bundle bundle) {
 
