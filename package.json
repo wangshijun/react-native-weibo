@@ -1,15 +1,38 @@
 {
-  "name": "react-native-weibo",
-  "version": "3.0.4",
-  "description": "新浪微博登录、分享模块",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
+  "_from": "git+https://github.com/oonxt/react-native-weibo.git",
+  "_id": "react-native-weibo@3.0.4",
+  "_inBundle": false,
+  "_integrity": "sha1-4s9ettXgTooWLD+pE/2lsgHC2Yc=",
+  "_location": "/react-native-weibo",
+  "_phantomChildren": {},
+  "_requested": {
     "type": "git",
-    "url": "git+https://github.com/reactnativecn/react-native-weibo.git"
+    "raw": "https://github.com/oonxt/react-native-weibo",
+    "rawSpec": "https://github.com/oonxt/react-native-weibo",
+    "saveSpec": "git+https://github.com/oonxt/react-native-weibo.git",
+    "fetchSpec": "https://github.com/oonxt/react-native-weibo.git",
+    "gitCommittish": "master"
   },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/oonxt/react-native-weibo.git#13feee281c749bdf78f878057dd89efd61db7290",
+  "_spec": "https://github.com/oonxt/react-native-weibo",
+  "_where": "/Users/mac/Documents/TestShare",
+  "author": {
+    "name": "lvbingru"
+  },
+  "bugs": {
+    "url": "https://github.com/reactnativecn/react-native-weibo/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "es6-promisify": "^3.0.0"
+  },
+  "deprecated": false,
+  "description": "新浪微博登录、分享模块",
+  "homepage": "https://github.com/reactnativecn/react-native-weibo#readme",
   "keywords": [
     "react-native",
     "ios",
@@ -19,13 +42,15 @@
     "share",
     "login"
   ],
-  "author": "lvbingru",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/reactnativecn/react-native-weibo/issues"
+  "main": "index.js",
+  "name": "react-native-weibo",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reactnativecn/react-native-weibo.git"
   },
-  "homepage": "https://github.com/reactnativecn/react-native-weibo#readme",
-  "dependencies": {
-    "es6-promisify": "^3.0.0"
-  }
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "3.0.4"
 }
