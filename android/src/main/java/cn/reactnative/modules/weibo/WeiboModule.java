@@ -145,7 +145,8 @@ public class WeiboModule extends ReactContextBaseJavaModule implements ActivityE
 
     @ReactMethod
     public void shareToWeibo(final ReadableMap data, Callback callback){
-
+        if(mSinaSsoHandler == null)
+            installWb(data);
         if (data.hasKey(RCTWBShareImageUrl)) {
             String imageUrl = data.getString(RCTWBShareImageUrl);
             DataSubscriber<CloseableReference<CloseableImage>> dataSubscriber =
