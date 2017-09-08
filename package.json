@@ -24,7 +24,7 @@
     "name": "lvbingru"
   },
   "bugs": {
-    "url": "https://github.com/reactnativecn/react-native-weibo/issues"
+    "url": "https://github.com/oonxt/react-native-weibo/issues"
   },
   "bundleDependencies": false,
   "dependencies": {
@@ -32,7 +32,7 @@
   },
   "deprecated": false,
   "description": "新浪微博登录、分享模块",
-  "homepage": "https://github.com/reactnativecn/react-native-weibo#readme",
+  "homepage": "https://github.com/oonxt/react-native-weibo#readme",
   "keywords": [
     "react-native",
     "ios",
@@ -47,7 +47,7 @@
   "name": "react-native-weibo",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reactnativecn/react-native-weibo.git"
+    "url": "git+https://github.com/oonxt/react-native-weibo.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
