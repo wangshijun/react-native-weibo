@@ -6,10 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/reactnativecn/react-native-weibo.git"
+  "bugs": {
+    "url": "https://github.com/wangshijun/react-native-weibo/issues"
   },
+  "homepage": "https://github.com/wangshijun/react-native-weibo#readme",
   "keywords": [
     "react-native",
     "ios",
@@ -19,10 +19,11 @@
     "share",
     "login"
   ],
-  "author": "lvbingru",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/reactnativecn/react-native-weibo/issues"
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangshijun/react-native-weibo.git"
   },
   "homepage": "https://github.com/reactnativecn/react-native-weibo#readme",
   "dependencies": {

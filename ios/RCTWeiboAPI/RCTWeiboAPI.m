@@ -58,7 +58,7 @@ RCT_EXPORT_MODULE();
 {
     self = [super init];
     if (self) {
-
+        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleOpenURL:) name:@"RCTOpenURLNotification" object:nil];
     }
     return self;
@@ -73,7 +73,7 @@ RCT_EXPORT_METHOD(login:(NSDictionary *)config
                   :(RCTResponseSenderBlock)callback)
 {
     [self _autoRegisterAPI];
-
+    
     WBAuthorizeRequest *request = [self _genAuthRequest:config];
     BOOL success = [WeiboSDK sendRequest:request];
     callback(@[success?[NSNull null]:INVOKE_FAILED]);
@@ -88,7 +88,7 @@ RCT_EXPORT_METHOD(shareToWeibo:(NSDictionary *)aData
                   :(RCTResponseSenderBlock)callback)
 {
     [self _autoRegisterAPI];
-
+    
     NSString *imageUrl = aData[RCTWBShareImageUrl];
     if (imageUrl.length && _bridge.imageLoader) {
         CGSize size = CGSizeZero;
@@ -239,7 +239,7 @@ RCT_EXPORT_METHOD(shareToWeibo:(NSDictionary *)aData
     }
     else if ([type isEqualToString:RCTWBShareTypeImage]) {
         //        大小不能超过10M
-        WBImageObject *imageObject = [WBImageObject new];
+        WBImageObject *imageObject = [WBImageObject object];
         if (aImage) {
             imageObject.imageData = UIImageJPEGRepresentation(aImage, 0.7);
         }
@@ -247,17 +247,12 @@ RCT_EXPORT_METHOD(shareToWeibo:(NSDictionary *)aData
     }
     else {
         if ([type isEqualToString:RCTWBShareTypeVideo]) {
-            WBVideoObject *videoObject = [WBVideoObject new];
-            videoObject.videoUrl = aData[RCTWBShareWebpageUrl];
+            WBNewVideoObject *videoObject = [WBNewVideoObject object];
+            [videoObject addVideo:aData[RCTWBShareWebpageUrl]];
             message.mediaObject = videoObject;
         }
-        else if ([type isEqualToString:RCTWBShareTypeAudio]) {
-            WBMusicObject *musicObject = [WBMusicObject new];
-            musicObject.musicUrl = aData[RCTWBShareWebpageUrl];
-            message.mediaObject = musicObject;
-        }
         else {
-            WBWebpageObject *webpageObject = [WBWebpageObject new];
+            WBWebpageObject *webpageObject = [WBWebpageObject object];
             webpageObject.webpageUrl = aData[RCTWBShareWebpageUrl];
             message.mediaObject = webpageObject;
         }

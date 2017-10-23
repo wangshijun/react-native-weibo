@@ -3,7 +3,7 @@
  */
 
 import {NativeModules, NativeAppEventEmitter} from 'react-native';
-import promisify from 'es6-promisify';
+import Promise from 'bluebird';
 
 const {WeiboAPI} = NativeModules;
 
@@ -27,7 +27,7 @@ function wrapApi(nativeFunc) {
     if (!nativeFunc) {
         return undefined;
     }
-    const promisified = promisify(nativeFunc, translateError);
+    const promisified = Promise.promisify(nativeFunc, translateError);
     return (...args) => {
         return promisified(...args);
     };
@@ -63,8 +63,10 @@ NativeAppEventEmitter.addListener('Weibo_Resp', resp => {
 });
 
 
-const defaultScope = "all"
-const defaultRedirectURI = "https://api.weibo.com/oauth2/default.html"
+const defaultScope = "email,direct_messages_read,direct_messages_write,"
+    + "friendships_groups_read,friendships_groups_write,statuses_to_me_read,"
+    + "follow_app_official_microblog," + "invitation_write";
+const defaultRedirectURI = "https://api.weibo.com/oauth2/default.html";
 
 function checkData(data) {
     if(!data.redirectURI) {
@@ -87,4 +89,3 @@ export function share(data) {
     checkData(data)
     return Promise.all([waitForResponse('WBSendMessageToWeiboResponse'), nativeSendMessageRequest(data)]).then(v=>v[0]);
 }
-
