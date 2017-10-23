@@ -9,7 +9,6 @@
   "bugs": {
     "url": "https://github.com/wangshijun/react-native-weibo/issues"
   },
-  "homepage": "https://github.com/wangshijun/react-native-weibo#readme",
   "keywords": [
     "react-native",
     "ios",
@@ -20,13 +19,12 @@
     "login"
   ],
   "license": "ISC",
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wangshijun/react-native-weibo.git"
   },
   "homepage": "https://github.com/reactnativecn/react-native-weibo#readme",
   "dependencies": {
-    "es6-promisify": "git+https://github.com/winkeywong/es6-promisify.git"
+    "bluebird": "^3.5.1"
   }
 }
